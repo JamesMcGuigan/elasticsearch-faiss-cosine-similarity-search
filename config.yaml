@@ -1,0 +1,123 @@
+labse:
+  bert_config:          ./models/labse/bert_config.json
+  vocab_file:           ./models/labse/vocab.txt
+  pytorch_model:        ./models/labse/bert_model.ckpt.data-00000-of-00001
+  tensorflow_model_dir: ./models/LaBSE_1_tensorflow
+  max_seq_length:       64
+
+laser:
+  base_dir:  ./models/laser
+  bpe_codes: ./models/laser/93langs.fcodes
+  bpe_vocab: ./models/laser/93langs.fvocab
+  encoder:   ./models/laser/bilstm.93langs.2018-12-26.pt
+
+fasttext:
+  model: models/fasttext/lid.176.bin
+
+punkt:
+  model_dir:  ./models/nltk_data/tokenizers/punkt/PY3/
+  model_glob: ./models/nltk_data/tokenizers/punkt/PY3/*.pickle
+
+hunalign:
+  executable_file: ./hunalign-1.1/src/hunalign/hunalign
+
+matecat_aligner:
+  base_url: https://dev.matecat.com/plugins/aligner
+
+
+# NOTE: keep this datastructure schema consistent for code looping purposes 
+datasets:
+  sentences:
+    meta:
+      translated: machine
+      order:      misaligned
+      alignment:  sentences
+    en: datasets/sentences/sentences_en.txt
+    it: datasets/sentences/sentences_it.txt
+    input_dir:  datasets/sentences/
+    input_glob: datasets/sentences/*.txt
+
+  udhr:
+    meta:
+      translated: human
+      order:      continuious
+      alignment:  paragraphs
+    labels:     datasets/udhr/languages.txt
+    input_dir:  datasets/udhr/txt/
+    input_glob: datasets/udhr/txt/*.txt
+    output_dir: output/udhr/
+
+  europarl:
+    meta:
+      translated: human
+      order:      continuous
+      alignment:  europarl
+    input_dir:   datasets/europarl/
+    input_glob:  datasets/europarl/*-*/*
+    output_dir:  output/europarl/
+    it_en:
+      it: datasets/europarl/it-en/europarl-v7.it-en.it
+      en: datasets/europarl/it-en/europarl-v7.it-en.en
+
+  europarl_tiny:
+    meta:
+      translated: human
+      order:      random
+      alignment:  europarl
+    input_dir:   datasets/europarl-tiny/
+    input_glob:  datasets/europarl-tiny/*/*
+
+  europarl_raw:
+    meta:
+      translated: human
+      order:      continuous
+      alignment:  unaligned
+    input_dir:   datasets/europarl_raw/txt/
+    input_glob:  datasets/europarl_raw/txt/*/*.txt
+    output_dir:  output/europarl_raw/
+
+  europarl_samples:
+    meta:
+      translated: machine
+      order:      continuous
+      alignment:  europarl
+    input_dir:   datasets/europarl_samples/
+    input_glob:  datasets/europarl_samples/*.txt
+    trap_sentences_dir: datasets/europarl_samples/trap_sentences/
+    vocabs_dir: datasets/europarl_samples/vocabs/
+    output_dir:  output/europarl_samples/
+
+  tmx_alignment_tool:
+      meta:
+        translated: machine
+        order:      continuous
+        alignment:  MyMemory
+      input_dir:   datasets/TMX/alignment-tool/
+      input_glob:  datasets/TMX/alignment-tool/*.tmx
+      output_dir:  output/TMX/alignment-tool/
+
+  tmx_human_translation:
+      meta:
+        translated: human
+        order:      continuous
+        alignment:  MyMemory
+      input_dir:   datasets/TMX/human-translation-tmx/
+      input_glob:  datasets/TMX/human-translation-tmx/*.tmx
+      output_dir:  output/TMX/human-translation-tmx/
+
+  tmx_public_corpora:
+      meta:
+        translated: machine
+        order:      continuous
+        alignment:  MyMemory
+      input_dir:   datasets/TMX/public-corpora/
+      input_glob:  datasets/TMX/public-corpora/*.tmx
+      output_dir:  output/TMX/public-corpora/
+  
+  cef:
+    input_glob: ./datasets/cef/CEF-DM-Multilingual-Benchmark/data/TestSet-*.tsv
+    de-it: ./datasets/cef/CEF-DM-Multilingual-Benchmark/data/TestSet-DE-IT.tsv
+    en-cs: ./datasets/cef/CEF-DM-Multilingual-Benchmark/data/TestSet-EN-CS.tsv
+    en-de: ./datasets/cef/CEF-DM-Multilingual-Benchmark/data/TestSet-EN-DE.tsv
+    en-it: ./datasets/cef/CEF-DM-Multilingual-Benchmark/data/TestSet-EN-IT.tsv
+    en-lv: ./datasets/cef/CEF-DM-Multilingual-Benchmark/data/TestSet-EN-LV.tsv

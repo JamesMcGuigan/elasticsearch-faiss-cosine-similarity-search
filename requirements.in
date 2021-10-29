@@ -1,0 +1,73 @@
+#
+# This file is input for pip-compile (from pip-tools). Update this file, then run:
+#
+#    pip-compile -v
+#    pip-sync
+#
+# Or to check for version bump upgrades:
+#
+#    pip-review
+#
+
+
+# Utils
+pip-tools
+gdown
+fastcache
+joblib
+pytest
+humanize
+lxml
+pydash
+numba
+boltons
+googletrans
+gitpython
+python-dotenv
+
+
+# Visualization
+jupyter
+matplotlib
+seaborn
+
+
+# Logic Programming
+z3-solver
+
+
+# Machine Learning
+nltk
+numpy
+pandas
+sklearn
+tensorflow
+tensorflow-gpu
+tensorflow_hub
+
+
+# Embeddings
+bert
+bert-for-tf2
+bert4keras
+laserembeddings
+laserembeddings[zh]
+laserembeddings[ja]
+faiss-cpu
+faiss-gpu
+Mbedder
+sentencepiece  # XLMRobertaTokenizer dependency
+
+# Language Detection
+pycountry
+fasttext
+# gcld3  # ERROR: Could not install packages due to an EnvironmentError: [Errno 22] Invalid argument
+
+
+# Text Processing
+ftfy
+beautifulsoup4
+
+
+# Databases
+elasticsearch

@@ -1,0 +1,16 @@
+{
+  "mappings": {
+    "dynamic": true,
+    "properties": {
+      "id":              { "type": "keyword" },
+      "text":            { "type": "text"    },
+      "length":          { "type": "integer" },
+      "lang_code":       { "type": "keyword" },
+      "language":        { "type": "keyword" },  // make "text" to allow for case insensitive and partial search
+      "dataset":         { "type": "keyword" },
+      "file":            { "type": "keyword" },
+      "embedding_laser": { "type": "dense_vector", "dims": 1024 },
+      // "embedding_labse": { "type": "dense_vector", "dims": 768  }
+    }
+  }
+}
