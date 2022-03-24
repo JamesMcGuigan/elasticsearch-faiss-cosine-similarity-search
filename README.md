@@ -100,7 +100,7 @@ query_embedding() timings: {'embedding': 0.86, 'query': 34.034}
 
 - FAISS runs 35x faster on GPU than CPU
 - FAISS scales linearly with search space and number of queries | O(N^2) for bitext retrieval
-- GTX 1600 (6GB) can load 500,000 embeddings into memory without PCA
+- NVIDIA GTX 1060 (6GB) can load 500,000 embeddings into memory without PCA
 - PCA with 128 dimensions has 4x faster search times
 - PCA with 128 dimensions is capable of doing GPU bitext retrieval on 
 2 million lines in 17 minutes with 86% accuracy
